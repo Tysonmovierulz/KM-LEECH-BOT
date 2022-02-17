@@ -40,12 +40,12 @@ from tobrot.UserDynaConfig import UserDynaConfig
 
 async def upload_as_doc(client, message):
     user_specific_config[message.from_user.id]=UserDynaConfig(message.from_user.id,True)
-    await message.reply_text("**🗞 Your Files Will Be Uploaded As Document 📁**")
+    await message.reply_text("**📜 Your Files Will Be Uploaded As Document 📁**")
 
 
 async def upload_as_video(client, message):
     user_specific_config[message.from_user.id]=UserDynaConfig(message.from_user.id,False)
-    await message.reply_text("**🗞 Your Files Will Be Uploaded As Streamable 🎞**")
+    await message.reply_text("**📜 Your Files Will Be Uploaded As Streamable 🎞**")
  
 
 async def status_message_f(
@@ -84,8 +84,8 @@ async def status_message_f(
                     msgg = f"<b>Peers:</b> {file.connections} | <b>Seeders:</b> {file.num_seeders}"
 
                 percentage = int(file.progress_string(0).split('%')[0])
-                prog = "[{0}{1}]".format("".join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 5))]),"".join([UN_FINISHED_PROGRESS_STR for i in range(20 - math.floor(percentage / 5))]))
-                msg += f"<b>════════════════════════════════</b>\n"
+                prog = "[{0}{1}]".format("".join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),"".join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))]))
+                msg += f"<b>✯᐀᐀᐀᐀@KMLeechStore2᐀᐀᐀᐀✯</b>\n"
                 msg += f"\n<b>{downloading_dir_name}</b>"
                 msg += f"\n<b>{prog}</b>"
                 msg += f"\n<b>Speed</b>: {file.download_speed_string()}"
@@ -109,7 +109,7 @@ async def status_message_f(
             f"<b>RAM:</b> <code>{ram}%</code> <b>CPU:</b> <code>{cpu}%</code>\n"
         )
         if msg == "":
-            msg = "🤷‍♂️ No Active, Queued or Paused TORRENTs"
+            msg = "🌹 No Active,Queued or Paused TORRENTs"
             msg = ms_g + "\n" + msg
             await to_edit.edit(msg)
             break
