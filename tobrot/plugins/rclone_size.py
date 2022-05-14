@@ -13,7 +13,7 @@ from tobrot import DESTINATION_FOLDER, EDIT_SLEEP_TIME_OUT, LOGGER, RCLONE_CONFI
 
 async def check_size_g(client, message):
     # await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-    del_it = await message.reply_text("🔊 Checking size...wait!!!")
+    del_it = await message.reply_text("🔊 𝐂𝐡𝐞𝐜𝐤𝐢𝐧𝐠 𝐒𝐢𝐳𝐞 𝐖𝐚𝐢𝐭!!")
     if not os.path.exists("rclone.conf"):
         with open("rclone.conf", "w+", newline="\n", encoding="utf-8") as fole:
             fole.write(f"{RCLONE_CONFIG}")
@@ -34,7 +34,7 @@ async def check_size_g(client, message):
     gautam = gau.decode("utf-8")
     LOGGER.info(gautam)
     await asyncio.sleep(5)
-    await message.reply_text(f"🔊CloudInfo:\n\n{gautam}")
+    await message.reply_text(f"🔊 𝐂𝐥𝐨𝐮𝐝 𝐈𝐧𝐟𝐨:\n\n{gautam}")
     await del_it.delete()
 
 
@@ -45,10 +45,10 @@ async def g_clearme(client, message):
     inline_keyboard = []
     ikeyboard = []
     ikeyboard.append(
-        InlineKeyboardButton("Yes 🚫", callback_data=("fuckingdo").encode("UTF-8"))
+        InlineKeyboardButton("𝐘𝐞𝐬", callback_data=("fuckingdo").encode("UTF-8"))
     )
     ikeyboard.append(
-        InlineKeyboardButton("No 🤗", callback_data=("fuckoff").encode("UTF-8"))
+        InlineKeyboardButton("𝐍𝐨", callback_data=("fuckoff").encode("UTF-8"))
     )
     inline_keyboard.append(ikeyboard)
     reply_markup = InlineKeyboardMarkup(inline_keyboard)
