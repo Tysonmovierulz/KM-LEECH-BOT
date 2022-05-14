@@ -79,21 +79,23 @@ async def status_message_f(
             if file.status == "active":
                 is_file = file.seeder
                 if is_file is None:
-                    msgg = f"<b>Conn:</b> {file.connections}"
+                    msgg = f"<b>🌟 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐢𝐨𝐧:</b> {file.connections}"
                 else:
-                    msgg = f"<b>Peers:</b> {file.connections} | <b>Seeders:</b> {file.num_seeders}"
+                    msgg = f"<b>🌟 𝐏𝐞𝐞𝐫𝐬:</b> {file.connections} | <b>🌟 𝐒𝐞𝐞𝐝𝐬:</b> {file.num_seeders}"
 
                 percentage = int(file.progress_string(0).split('%')[0])
                 prog = "[{0}{1}]".format("".join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),"".join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))]))
-                msg += f"<b>✯᐀᐀᐀᐀@Movierulz_Tyson᐀᐀᐀᐀✯</b>\n"
-                msg += f"\n<b>{downloading_dir_name}</b>"
+                
+                msg += f"\n<b>🌟 𝐍𝐚𝐦𝐞</b>: {downloading_dir_name}</b>"
                 msg += f"\n<b>{prog}</b>"
-                msg += f"\n<b>Speed</b>: {file.download_speed_string()}"
-                msg += f"\n<b>Status</b>: {file.progress_string()} <b>of</b> {file.total_length_string()}"
-                msg += f"\n<b>ETA:</b> {file.eta_string()}"
+                msg += f"\n<b>🌟 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐬</b>: {file.progress_string()}"
+                msg += f"\n<b>🌟 𝐒𝐩𝐞𝐞𝐝</b>: {file.download_speed_string()}"
+                msg += f"\n<b>🌟 𝐒𝐢𝐳𝐞</b>: {file.total_length_string()}
                 msg += f"\n{msgg}"
-                msg += f"\n<b>To Cancel:</b> <code>/cancel {file.gid}</code>"
+                msg += f"\n<b>🌟 𝐄𝐓𝐀:</b> {file.eta_string()}"     
+                msg += f"\n<b>🌟 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥:</b> <code>/cancel {file.gid}</code>"
                 msg += "\n"
+                msg += f"<b>═════[💠𝐁𝐑𝐔𝐂𝐄 𝐁𝐎𝐓𝐒💠]══════</b>\n"
 
         hr, mi, se = up_time(time.time() - BOT_START_TIME)
         total, used, free = shutil.disk_usage(".")
@@ -104,12 +106,12 @@ async def status_message_f(
         free = humanbytes(free)
 
         ms_g = (
-            f"<b>Bot Uptime</b>: <code>{hr} : {mi} : {se}</code>\n"
-            f"<b>T:</b> <code>{total}</code> <b>U:</b> <code>{used}</code> <b>F:</b> <code>{free}</code>\n"
-            f"<b>RAM:</b> <code>{ram}%</code> <b>CPU:</b> <code>{cpu}%</code>\n"
-        )
+            f"<b>𝐔𝐏𝐓𝐈𝐌𝐄</b>: <code>{hr} : {mi} : {se}</code>\n"
+            f"<b>𝐔𝐒𝐄𝐃:</b> <code>{used}</code> <b>𝐅𝐑𝐄𝐄:</b> <code>{free}</code>\n"
+            f"<b>𝐑𝐀𝐌:</b> <code>{ram}%</code> <b>𝐂𝐏𝐔:</b> <code>{cpu}%</code>\n"
+       )
         if msg == "":
-            msg = "🌹No Active or Paused TORRENTs and links"
+            msg = "🌟 𝐍𝐨 𝐀𝐜𝐭𝐢𝐯𝐞 𝐨𝐫 𝐏𝐚𝐮𝐬𝐞𝐝 𝐓𝐨𝐫𝐫𝐞𝐧𝐭𝐬 𝐚𝐧𝐝 𝐥𝐢𝐧𝐤𝐬"
             msg = ms_g + "\n" + msg
             await to_edit.edit(msg)
             break
